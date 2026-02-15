@@ -1,119 +1,96 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Users } from "lucide-react";
+
+const experiences = [
+    {
+        title: "BCA Scholar",
+        org: "VIPS-TC (GGSIPU)",
+        period: "2024 // Present",
+        details: [
+            "Analytical focus on systems thinking and statistical logic.",
+            "Current CGPA: 9.24/10.0.",
+            "Relevant Focus: Python, Data Structures, DBMS, Statistics."
+        ]
+    },
+    {
+        title: "Foundation Studies",
+        org: "St. Edward’s School",
+        details: [
+            "Established core mathematical and logical foundations.",
+            "Focus on early computational logic and systems theory."
+        ]
+    }
+];
 
 export default function Journey() {
     return (
-        <section id="journey" className="py-24 px-6 md:px-12 lg:px-24 bg-black">
-            <div className="max-w-4xl mx-auto">
-                <div className="text-center mb-20 space-y-4">
-                    <p className="text-primary text-[10px] uppercase font-bold tracking-[0.4em]">Journey</p>
-                    <h2 className="text-4xl md:text-6xl font-bold tracking-tighter">Academic <span className="text-primary">Timeline</span></h2>
-                </div>
+        <section id="experience" className="py-24 px-6 md:px-12 lg:px-24 border-t border-white/5 bg-[#0a0a0b]">
+            <div className="max-w-7xl mx-auto">
+                <div className="grid grid-cols-1 lg:grid-cols-12 gap-16">
 
-                <div className="relative">
-                    {/* Vertical Line */}
-                    <div className="absolute left-[8px] md:left-1/2 top-0 bottom-0 w-[2px] bg-gradient-to-b from-primary via-primary/20 to-transparent md:-translate-x-1/2 hidden md:block" />
-
-                    <div className="space-y-12">
-                        {/* Education VIPS */}
-                        <motion.div
-                            initial={{ opacity: 0, y: 30 }}
-                            whileInView={{ opacity: 1, y: 0 }}
+                    {/* Header */}
+                    <div className="lg:col-span-4 space-y-4">
+                        <motion.p
+                            initial={{ opacity: 0 }}
+                            whileInView={{ opacity: 1 }}
                             viewport={{ once: true }}
-                            className="relative grid grid-cols-1 md:grid-cols-2 gap-12"
+                            className="text-primary text-[10px] uppercase font-bold tracking-[0.4em] font-mono"
                         >
-                            <div className="absolute left-1/2 top-4 w-4 h-4 rounded-full bg-primary -translate-x-1/2 hidden md:block z-10 shadow-[0_0_15px_rgba(14,165,255,1)]" />
+                            {"// experience & education"}
+                        </motion.p>
+                        <h2 className="text-4xl md:text-5xl font-black tracking-tighter text-white">
+                            The Academic <br /> Foundations.
+                        </h2>
+                    </div>
 
-                            <div className="md:order-2 md:pl-12">
-                                <div className="glass p-8 space-y-6 hover:bg-white/[0.03] transition-all group">
-                                    <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
-                                        <div>
-                                            <h3 className="text-xl md:text-2xl font-bold">Bachelor in Computer Applications</h3>
-                                            <p className="text-primary font-bold text-sm">Vivekananda Institute of Professional Studies – Technical Campus (VIPS-TC)</p>
-                                            <p className="text-foreground/30 text-[10px] font-bold uppercase tracking-widest pt-1">Aug 2023 - Expected 2027 • GGSIPU, Delhi</p>
-                                        </div>
-                                        <div className="text-4xl font-black text-white/5 group-hover:text-primary/10 transition-colors">2027</div>
+                    {/* Timeline / List */}
+                    <div className="lg:col-span-8 space-y-16">
+                        {experiences.map((exp, i) => (
+                            <motion.div
+                                key={i}
+                                initial={{ opacity: 0, x: 20 }}
+                                whileInView={{ opacity: 1, x: 0 }}
+                                viewport={{ once: true }}
+                                transition={{ delay: i * 0.1 }}
+                                className="relative pl-8 border-l border-white/5 space-y-4"
+                            >
+                                <div className="absolute left-[-1px] top-0 w-[2px] h-8 bg-primary/30" />
+
+                                <div className="space-y-1">
+                                    <div className="flex flex-col md:flex-row md:items-center justify-between gap-2">
+                                        <h3 className="text-xl font-bold text-white leading-tight">{exp.title}</h3>
+                                        <span className="text-[10px] font-mono text-primary/60 uppercase tracking-widest">{exp.period}</span>
                                     </div>
+                                    <p className="text-foreground/40 font-bold uppercase tracking-widest text-[11px]">{exp.org}</p>
+                                </div>
 
-                                    <ul className="space-y-3 text-foreground/60 text-sm">
-                                        {[
-                                            "CGPA: 9.24 / 10.0",
-                                            "Relevant Coursework: Python, Data Structures, DBMS, Statistics, Computer Organization"
-                                        ].map((p, pi) => (
-                                            <li key={pi} className="flex gap-3 md:items-start group/li">
-                                                <span className="w-1.5 h-1.5 rounded-full bg-primary/40 mt-1.5 shrink-0 group-hover/li:bg-primary" />
-                                                <span>{p}</span>
+                                {exp.details.length > 0 && (
+                                    <ul className="space-y-2">
+                                        {exp.details.map((detail, j) => (
+                                            <li key={j} className="text-sm text-foreground/40 leading-relaxed max-w-xl">
+                                                — {detail}
                                             </li>
                                         ))}
                                     </ul>
+                                )}
+                            </motion.div>
+                        ))}
 
-                                    <div className="flex flex-wrap gap-2 pt-4">
-                                        {["Python", "DSA", "DBMS", "Statistics"].map(tag => (
-                                            <span key={tag} className="px-2 py-0.5 bg-white/5 border border-white/10 rounded text-[9px] font-bold uppercase tracking-widest text-foreground/40">{tag}</span>
-                                        ))}
-                                    </div>
-                                </div>
-                            </div>
-                        </motion.div>
-
-                        {/* School Shimla */}
+                        {/* Leadership Plug */}
                         <motion.div
-                            initial={{ opacity: 0, y: 30 }}
-                            whileInView={{ opacity: 1, y: 0 }}
+                            initial={{ opacity: 0 }}
+                            whileInView={{ opacity: 1 }}
                             viewport={{ once: true }}
-                            transition={{ delay: 0.2 }}
-                            className="relative grid grid-cols-1 md:grid-cols-2 gap-12"
+                            className="pt-12 border-t border-white/5"
                         >
-                            <div className="absolute left-1/2 top-4 w-4 h-4 rounded-full bg-primary/40 -translate-x-1/2 hidden md:block z-10" />
-
-                            <div className="md:text-right md:pr-12">
-                                <div className="glass p-8 space-y-6 hover:bg-white/[0.03] transition-all group">
-                                    <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
-                                        <div className="text-4xl font-black text-white/5 group-hover:text-primary/10 transition-colors">Shimla</div>
-                                        <div>
-                                            <h3 className="text-xl md:text-2xl font-bold">Secondary Education</h3>
-                                            <p className="text-primary font-bold text-sm">St. Edward’s School</p>
-                                            <p className="text-foreground/30 text-[10px] font-bold uppercase tracking-widest pt-1">Shimla, Himachal Pradesh</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </motion.div>
-
-                        {/* Leadership & Coordination */}
-                        <motion.div
-                            initial={{ opacity: 0, scale: 0.95 }}
-                            whileInView={{ opacity: 1, scale: 1 }}
-                            viewport={{ once: true }}
-                            className="pt-12 md:px-12"
-                        >
-                            <div className="glass p-12 space-y-8 border border-primary/10 bg-primary/[0.01]">
-                                <div className="flex items-center gap-6">
-                                    <div className="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center text-primary shrink-0">
-                                        <Users className="w-8 h-8" />
-                                    </div>
-                                    <div className="text-left">
-                                        <h3 className="text-2xl font-bold">Leadership & Coordination</h3>
-                                        <p className="text-foreground/40 text-sm font-medium">Bridges the gap between technical trade-offs and team alignment.</p>
-                                    </div>
-                                </div>
-                                <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-left">
-                                    {[
-                                        { label: "Coordination", desc: "Steps into roles when direction is unclear." },
-                                        { label: "Problem Solving", desc: "Breaks problems into trade-offs and next steps." },
-                                        { label: "Alignment", desc: "Maintains consensus across differing viewpoints." }
-                                    ].map((item, i) => (
-                                        <div key={i} className="space-y-2">
-                                            <p className="text-primary font-bold text-xs uppercase tracking-widest">{item.label}</p>
-                                            <p className="text-foreground/60 text-sm leading-relaxed">{item.desc}</p>
-                                        </div>
-                                    ))}
-                                </div>
-                            </div>
+                            <h4 className="text-xs font-bold uppercase tracking-[0.3em] text-white/40 mb-6">Coordination & Leadership</h4>
+                            <p className="text-sm text-foreground/40 leading-relaxed max-w-2xl">
+                                Beyond technical foundations, I focus on bridging the gap between engineering trade-offs and team alignment—maintaining consensus and clarity in complex environments.
+                            </p>
                         </motion.div>
                     </div>
+
                 </div>
             </div>
         </section>

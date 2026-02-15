@@ -8,15 +8,15 @@ module.exports = {
     theme: {
         extend: {
             colors: {
-                background: "#0a0a0a",
-                foreground: "#f0f0f0",
+                background: "#0a0a0b",
+                foreground: "#fefefe",
                 primary: {
-                    DEFAULT: "#0ea5ff",
-                    dark: "#0088cc",
-                    light: "#3db9ff",
+                    DEFAULT: "#22d3ee",
+                    dark: "#0891b2",
+                    light: "#67e8f9",
                 },
-                "glass-bg": "rgba(255, 255, 255, 0.03)",
-                "glass-border": "rgba(255, 255, 255, 0.08)",
+                "glass-bg": "rgba(255, 255, 255, 0.02)",
+                "glass-border": "rgba(255, 255, 255, 0.05)",
             },
             borderRadius: {
                 'xl': '14px',

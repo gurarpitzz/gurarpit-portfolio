@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Mail, Github, Linkedin, Phone, MessageSquare, ArrowUp, GraduationCap } from "lucide-react";
+import { Mail, Github, Linkedin, GraduationCap } from "lucide-react";
 
 export default function Contact() {
     const scrollToTop = () => {
@@ -9,78 +9,84 @@ export default function Contact() {
     };
 
     const contactLinks = [
-        { label: "Email", value: "gurarpit.sml@gmail.com", icon: Mail, sub: "Send a message", href: "mailto:gurarpit.sml@gmail.com" },
-        { label: "Phone", value: "9805074750", icon: Phone, sub: "Let's talk", href: "tel:+919805074750" },
-        { label: "Scholar", value: "Research Profile", icon: GraduationCap, sub: "Citations", href: "https://scholar.google.com/citations?user=VDbqG9cAAAAJ&hl=en" },
-        { label: "LinkedIn", value: "Connect", icon: Linkedin, sub: "Network", href: "https://linkedin.com/in/gurarpitzz" },
-        { label: "GitHub", value: "Follow", icon: Github, sub: "Code", href: "https://github.com/gurarpitzz" }
+        { label: "Email", value: "gurarpit.sml@gmail.com", icon: Mail, href: "mailto:gurarpit.sml@gmail.com" },
+        { label: "LinkedIn", value: "gurarpitzz", icon: Linkedin, href: "https://linkedin.com/in/gurarpitzz" },
+        { label: "GitHub", value: "gurarpitzz", icon: Github, href: "https://github.com/gurarpitzz" },
+        { label: "Scholar", value: "Research Profile", icon: GraduationCap, href: "https://scholar.google.com/citations?user=VDbqG9cAAAAJ&hl=en" }
     ];
 
     return (
-        <section id="contact" className="relative py-32 px-6 md:px-12 lg:px-24 bg-black overflow-hidden">
-            <div className="max-w-7xl mx-auto relative z-10">
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+        <section id="contact" className="py-32 px-6 md:px-12 lg:px-24 border-t border-white/5 bg-[#0a0a0b]">
+            <div className="max-w-7xl mx-auto">
+                <div className="grid grid-cols-1 lg:grid-cols-12 gap-16">
 
-                    <div className="space-y-12">
+                    {/* Left: Message */}
+                    <div className="lg:col-span-5 space-y-8">
                         <div className="space-y-4">
-                            <p className="text-primary text-[10px] uppercase font-bold tracking-[0.4em]">Let&apos;s talk</p>
-                            <h2 className="text-5xl md:text-7xl font-bold tracking-tighter">
-                                Have a project <br />
-                                <span className="text-primary">in mind?</span>
+                            <motion.p
+                                initial={{ opacity: 0 }}
+                                whileInView={{ opacity: 1 }}
+                                viewport={{ once: true }}
+                                className="text-primary text-[10px] uppercase font-bold tracking-[0.4em] font-mono"
+                            >
+                                {"// contact"}
+                            </motion.p>
+                            <h2 className="text-4xl md:text-6xl font-black tracking-tighter text-white">
+                                Let&apos;s build <br /> <span className="text-primary">together.</span>
                             </h2>
                         </div>
+                        <p className="text-foreground/40 text-sm leading-relaxed max-w-sm">
+                            I am always open to discussing backend systems, data engineering, or research opportunities.
+                        </p>
+                    </div>
 
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    {/* Right: Links & Form */}
+                    <div className="lg:col-span-7 grid grid-cols-1 md:grid-cols-2 gap-12">
+                        {/* Contact List */}
+                        <div className="space-y-8">
                             {contactLinks.map((item, i) => (
                                 <motion.a
                                     key={i}
                                     href={item.href}
-                                    target={item.href.startsWith('http') ? "_blank" : undefined}
-                                    initial={{ opacity: 0, y: 10 }}
-                                    whileInView={{ opacity: 1, y: 0 }}
+                                    target={item.href.startsWith('mailto:') ? undefined : "_blank"}
+                                    rel={item.href.startsWith('mailto:') ? undefined : "noopener noreferrer"}
+                                    initial={{ opacity: 0, x: 20 }}
+                                    whileInView={{ opacity: 1, x: 0 }}
                                     viewport={{ once: true }}
                                     transition={{ delay: i * 0.1 }}
-                                    className="glass p-6 group hover:bg-white/[0.04] transition-all cursor-pointer border border-white/5 block"
+                                    className="group flex items-center gap-6"
                                 >
-                                    <div className="flex items-center gap-4 mb-2">
-                                        <item.icon className="w-5 h-5 text-primary" />
-                                        <span className="text-[10px] font-bold uppercase tracking-widest text-foreground/40">{item.label}</span>
+                                    <div className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-white/20 group-hover:text-primary group-hover:bg-primary/10 transition-all border border-white/5">
+                                        <item.icon className="w-4 h-4" />
                                     </div>
-                                    <p className="text-lg font-bold group-hover:text-primary transition-colors">{item.value}</p>
+                                    <div className="space-y-1">
+                                        <p className="text-[10px] font-bold uppercase tracking-widest text-foreground/30">{item.label}</p>
+                                        <p className="text-sm font-bold text-white/70 group-hover:text-primary transition-colors">{item.value}</p>
+                                    </div>
                                 </motion.a>
                             ))}
                         </div>
 
-                        <div className="pt-8 border-t border-white/10 space-y-6">
-                            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                                <input type="text" placeholder="Your Name" className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-4 focus:outline-none focus:border-primary transition-all text-sm" />
-                                <input type="email" placeholder="Your Email" className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-4 focus:outline-none focus:border-primary transition-all text-sm" />
-                            </div>
-                            <textarea placeholder="Tell me about your project..." rows={4} className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-4 focus:outline-none focus:border-primary transition-all text-sm resize-none" />
-                            <button className="w-full py-5 bg-primary text-black font-black uppercase tracking-widest rounded-xl hover:brightness-110 transition-all shadow-[0_0_25px_rgba(14,165,255,0.2)]">
-                                Ignite Discussion
+                        {/* Minimal Form */}
+                        <div className="space-y-4 pt-4 md:pt-0">
+                            <input
+                                type="text"
+                                placeholder="Your Name"
+                                className="w-full bg-[#111111] border border-white/5 rounded-md px-4 py-3 focus:outline-none focus:border-primary/50 transition-all text-xs font-mono"
+                            />
+                            <input
+                                type="email"
+                                placeholder="Your Email"
+                                className="w-full bg-[#111111] border border-white/5 rounded-md px-4 py-3 focus:outline-none focus:border-primary/50 transition-all text-xs font-mono"
+                            />
+                            <textarea
+                                placeholder="Message"
+                                rows={3}
+                                className="w-full bg-[#111111] border border-white/5 rounded-md px-4 py-3 focus:outline-none focus:border-primary/50 transition-all text-xs font-mono resize-none"
+                            />
+                            <button className="w-full py-3 bg-white/5 hover:bg-primary hover:text-black border border-white/10 rounded-md text-[10px] font-bold uppercase tracking-widest transition-all">
+                                Send Message
                             </button>
-                        </div>
-                    </div>
-
-                    <div className="relative hidden lg:block h-[600px]">
-                        {/* Visual Backdrop */}
-                        <div className="absolute inset-0 bg-gradient-to-br from-primary/20 via-transparent to-transparent rounded-full blur-[100px] -z-10 animate-pulse-slow" />
-
-                        <div className="absolute inset-0 flex items-center justify-center">
-                            <div className="text-center space-y-6 relative z-10">
-                                <p className="text-4xl md:text-5xl font-black text-white/10 tracking-tighter leading-none">
-                                    Let&apos;s build <br /> something <br /> <span className="text-white/30">together</span>
-                                </p>
-
-                                {/* Floating Icons Loop */}
-                                <div className="absolute inset-0 -z-10 flex items-center justify-center scale-150">
-                                    <Mail className="absolute top-0 right-0 w-12 h-12 text-white/5 -rotate-12" />
-                                    <Github className="absolute bottom-10 left-0 w-16 h-16 text-white/5 rotate-12" />
-                                    <Linkedin className="absolute top-20 left-10 w-14 h-14 text-white/5 -rotate-6" />
-                                    <MessageSquare className="absolute bottom-32 right-10 w-12 h-12 text-white/5 rotate-6" />
-                                </div>
-                            </div>
                         </div>
                     </div>
 
@@ -88,13 +94,15 @@ export default function Contact() {
             </div>
 
             {/* Back to Top */}
-            <button
-                onClick={scrollToTop}
-                className="fixed bottom-10 right-10 w-14 h-14 bg-primary text-black rounded-full flex items-center justify-center shadow-2xl hover:scale-110 transition-all z-[60] group"
-            >
-                <ArrowUp className="w-6 h-6 group-hover:-translate-y-1 transition-transform" />
-            </button>
-
+            <div className="mt-32 flex justify-center">
+                <button
+                    onClick={scrollToTop}
+                    className="flex flex-col items-center gap-4 text-white/20 hover:text-primary transition-all group"
+                >
+                    <div className="w-[1px] h-12 bg-gradient-to-t from-primary/40 to-transparent group-hover:h-16 transition-all" />
+                    <span className="text-[10px] font-bold uppercase tracking-[0.4em]">Back to Top</span>
+                </button>
+            </div>
         </section>
     );
 }

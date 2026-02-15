@@ -3,14 +3,16 @@
 @tailwind utilities;
 
 :root {
-  --background: #0a0a0a;
-  --foreground: #f0f0f0;
-  --accent: #0ea5ff;
+  --background: #0a0a0b;
+  --foreground: #fefefe;
+  --accent: #22d3ee;
 }
 
 @layer base {
   body {
     @apply bg-background text-foreground antialiased selection:bg-primary/30 selection:text-white;
+    background-image: linear-gradient(to bottom, #111111, #0a0a0b);
+    background-attachment: fixed;
     font-feature-settings: "cv02", "cv03", "cv04", "cv11";
   }
 
@@ -20,7 +22,7 @@
   h4,
   h5,
   h6 {
-    @apply font-bold tracking-tight text-white;
+    @apply font-bold tracking-tighter text-white;
   }
 }
 
@@ -38,7 +40,7 @@
   }
 }
 
-/* Custom background pattern */
+/* Minimal quiet background - no orbs */
 body::before {
   content: "";
   position: fixed;
@@ -46,8 +48,7 @@ body::before {
   left: 0;
   width: 100%;
   height: 100%;
-  background: radial-gradient(circle at 50% -20%, rgba(14, 165, 255, 0.15), transparent 70%),
-    radial-gradient(circle at 0% 100%, rgba(14, 165, 255, 0.05), transparent 50%);
+  background: radial-gradient(circle at 50% 0%, rgba(34, 211, 238, 0.03), transparent 70%);
   z-index: -1;
   pointer-events: none;
 }
