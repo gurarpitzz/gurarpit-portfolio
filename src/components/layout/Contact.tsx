@@ -101,6 +101,19 @@ export default function Contact() {
                             ))}
                         </div>
 
+                        {/* Resume Download Button */}
+                        <div className="pt-2">
+                            <a
+                                href="https://drive.google.com/file/d/1zPoU_TYWAA84uZKhkZo91gT70_AnCwlB/view?usp=sharing"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="inline-flex items-center gap-3 px-8 py-4 bg-white/5 hover:bg-white/10 border border-white/10 rounded-full text-xs font-bold uppercase tracking-widest transition-all group"
+                            >
+                                <GraduationCap className="w-4 h-4 text-primary group-hover:scale-110 transition-transform" />
+                                <span>Download Resume</span>
+                            </a>
+                        </div>
+
                         {/* Minimal Form */}
                         <form onSubmit={handleSubmit} className="space-y-4 pt-4 md:pt-0">
                             {/* CAUTION: User must replace this with their actual Web3Forms access key */}
