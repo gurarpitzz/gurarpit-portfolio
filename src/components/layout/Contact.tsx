@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Mail, Github, Linkedin, GraduationCap, Send, CheckCircle2, Loader2 } from "lucide-react";
+import { Mail, Github, Linkedin, GraduationCap, Send, CheckCircle2, Loader2, FileText } from "lucide-react";
 
 export default function Contact() {
     const [status, setStatus] = useState<"idle" | "sending" | "success" | "error">("idle");
@@ -42,7 +42,6 @@ export default function Contact() {
     };
 
     const contactLinks = [
-        // ... (rest of the component remains same)
         { label: "Email", value: "gurarpit.sml@gmail.com", icon: Mail, href: "mailto:gurarpit.sml@gmail.com" },
         { label: "LinkedIn", value: "gurarpitsinghh", icon: Linkedin, href: "https://www.linkedin.com/in/gurarpitsinghh/" },
         { label: "GitHub", value: "gurarpitzz", icon: Github, href: "https://github.com/gurarpitzz" },
@@ -72,6 +71,19 @@ export default function Contact() {
                         <p className="text-foreground/40 text-sm leading-relaxed max-w-sm">
                             I am always open to discussing backend systems, data engineering, or research opportunities.
                         </p>
+
+                        {/* Resume Download Button (Moved here) */}
+                        <div className="pt-4">
+                            <a
+                                href="https://drive.google.com/file/d/1zPoU_TYWAA84uZKhkZo91gT70_AnCwlB/view?usp=sharing"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="inline-flex items-center gap-3 px-8 py-4 bg-white/5 hover:bg-white/10 border border-white/10 rounded-full text-xs font-bold uppercase tracking-widest transition-all group"
+                            >
+                                <FileText className="w-4 h-4 text-primary group-hover:scale-110 transition-transform" />
+                                <span>Download Resume</span>
+                            </a>
+                        </div>
                     </div>
 
                     {/* Right: Links & Form */}
@@ -99,19 +111,6 @@ export default function Contact() {
                                     </div>
                                 </motion.a>
                             ))}
-                        </div>
-
-                        {/* Resume Download Button */}
-                        <div className="pt-2">
-                            <a
-                                href="https://drive.google.com/file/d/1zPoU_TYWAA84uZKhkZo91gT70_AnCwlB/view?usp=sharing"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="inline-flex items-center gap-3 px-8 py-4 bg-white/5 hover:bg-white/10 border border-white/10 rounded-full text-xs font-bold uppercase tracking-widest transition-all group"
-                            >
-                                <GraduationCap className="w-4 h-4 text-primary group-hover:scale-110 transition-transform" />
-                                <span>Download Resume</span>
-                            </a>
                         </div>
 
                         {/* Minimal Form */}
