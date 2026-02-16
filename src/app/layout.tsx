@@ -4,6 +4,8 @@ import "./globals.css";
 import Nav from "@/components/layout/Nav";
 import IntroGate from "@/components/layout/IntroGate";
 
+import { GoogleAnalytics } from "@next/third-parties/google";
+
 const inter = Inter({ subsets: ["latin"], weight: ["400", "500", "600", "700", "900"] });
 
 export const metadata: Metadata = {
@@ -18,6 +20,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="scroll-smooth">
+      <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_ID!} />
       <body className={`${inter.className} min-h-screen relative overflow-x-hidden bg-[#0a0a0b] text-foreground`}>
         <IntroGate>
           <Nav />
