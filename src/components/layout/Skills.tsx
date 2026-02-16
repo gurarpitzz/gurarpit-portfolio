@@ -6,23 +6,23 @@ import { Monitor, Code, Smartphone } from "lucide-react";
 const skills = [
     {
         icon: Monitor,
-        title: "Software",
-        subtitle: "Development",
-        description: "Experienced in both functional and OOP: Dart, Python, Java, JavaScript, TypeScript.",
+        title: "Backend",
+        subtitle: "Engineering",
+        description: "Building reliable backend systems with Python, FastAPI, PostgreSQL. Experienced in RESTful APIs, WebSockets, and system architecture.",
         color: "text-pink-500"
     },
     {
         icon: Code,
-        title: "Frontend Dev",
-        subtitle: "React, NextJS",
-        description: "Passionate about UI/UX. Over 5 years of development experience in HTML, CSS, JS, React and NextJS frameworks.",
+        title: "Data & NLP",
+        subtitle: "Semantic Systems",
+        description: "Semantic search engines, NLP embeddings, knowledge graphs. Working with Pinecone, OpenAI, and custom vector databases for research applications.",
         color: "text-blue-400"
     },
     {
         icon: Smartphone,
-        title: "Flutter Dev",
-        subtitle: "Android, iOS",
-        description: "Skilled in developing hybrid mobile apps and cross-platform solutions using the Flutter framework.",
+        title: "Research",
+        subtitle: "Systems",
+        description: "Signal processing, verification engines, and accessibility interfaces. Translating complex research into production-ready systems.",
         color: "text-orange-500"
     }
 ];
