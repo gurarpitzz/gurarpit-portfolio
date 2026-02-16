@@ -17,9 +17,12 @@ export default function IntroGate({ children }: IntroGateProps) {
 
     useEffect(() => {
         setIsMounted(true);
+
+        // TEMPORARY: Reset intro for testing so user can see it on refresh
+        // sessionStorage.removeItem("gs_intro_seen"); 
+
         const hasSeenIntro = sessionStorage.getItem("gs_intro_seen");
 
-        // Skip if seen or if motion is reduced
         if (hasSeenIntro === "true" || prefersReducedMotion) {
             setShouldShowIntro(false);
             setAnimationComplete(true);
@@ -30,11 +33,10 @@ export default function IntroGate({ children }: IntroGateProps) {
 
     const handleAnimationComplete = () => {
         sessionStorage.setItem("gs_intro_seen", "true");
-        // Maintain a slight delay for the exit transition
         setTimeout(() => {
             setAnimationComplete(true);
             setShouldShowIntro(false);
-        }, 500);
+        }, 800);
     };
 
     // On server and initial client render, render children to avoid 500/hydration issues
@@ -55,52 +57,27 @@ export default function IntroGate({ children }: IntroGateProps) {
                         key="intro-overlay"
                         initial={{ opacity: 1 }}
                         exit={{ opacity: 0 }}
-                        transition={{ duration: 0.8, ease: "easeOut" }}
-                        className="fixed inset-0 z-[9999] bg-black flex flex-col items-center justify-center"
+                        transition={{ duration: 1, ease: "easeInOut" }}
+                        className="fixed inset-0 z-[9999] bg-black flex flex-col items-center justify-center p-6"
                     >
-                        <div className="relative flex flex-col items-center">
-                            {/* Phase 1 & 2: Signal -> Identity (SVG Morph) */}
-                            <div className="h-32 flex items-center justify-center">
-                                <svg width="120" height="60" viewBox="0 0 120 60" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <motion.path
-                                        initial={{
-                                            // Concentrated Dot Path (Structured for GS morph)
-                                            d: "M 60 30 C 60 30 60 30 60 30 L 60 30 C 60 30 60 30 60 30 L 60 30 M 60 30 C 60 30 60 30 60 30 C 60 30 60 30 60 30 C 60 30 60 30 60 30",
-                                            y: -200,
-                                            opacity: 1
-                                        }}
-                                        animate={{
-                                            y: 0,
-                                            d: [
-                                                "M 60 30 C 60 30 60 30 60 30 L 60 30 C 60 30 60 30 60 30 L 60 30 M 60 30 C 60 30 60 30 60 30 C 60 30 60 30 60 30 C 60 30 60 30 60 30", // Dot
-                                                "M 35 15 C 35 5 55 5 55 15 L 55 25 C 55 35 35 35 35 30 L 35 25 M 75 10 C 85 10 95 10 95 20 C 95 30 75 30 75 40 C 75 50 85 50 95 50" // Stylized GS
-                                            ]
-                                        }}
-                                        transition={{
-                                            y: { duration: 0.6, ease: "linear" },
-                                            d: { delay: 0.6, duration: 0.8, ease: "easeOut" }
-                                        }}
-                                        stroke="#22d3ee"
-                                        strokeWidth="2"
-                                        strokeLinecap="round"
-                                        strokeLinejoin="round"
-                                    />
-                                </svg>
-                            </div>
-
-                            {/* Phase 3: Name Resolution */}
-                            <motion.div
-                                initial={{ opacity: 0, y: 8 }}
-                                animate={{ opacity: 1, y: 0 }}
-                                transition={{ delay: 1.4, duration: 0.4, ease: "easeOut" }}
-                                onAnimationComplete={handleAnimationComplete}
-                                className="text-center mt-6"
-                            >
-                                <h1 className="text-2xl font-black tracking-tighter text-white uppercase">
-                                    Gurarpit Singh
-                                </h1>
-                            </motion.div>
-                        </div>
+                        <motion.div
+                            key="intro-identity"
+                            initial={{ opacity: 0, scale: 0.98 }}
+                            animate={{ opacity: 1, scale: 1 }}
+                            exit={{ opacity: 0, scale: 1.02 }}
+                            transition={{
+                                duration: 1.2,
+                                ease: [0.22, 1, 0.36, 1],
+                                opacity: { duration: 0.8 }
+                            }}
+                            onAnimationComplete={handleAnimationComplete}
+                            className="relative flex flex-col items-center"
+                        >
+                            <span className="text-6xl md:text-8xl font-black tracking-tighter text-white uppercase selection:bg-transparent">
+                                GS<span className="text-primary">.</span>
+                            </span>
+                            <div className="mt-4 h-px w-8 bg-primary/20" />
+                        </motion.div>
                     </motion.div>
                 )}
             </AnimatePresence>

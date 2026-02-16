@@ -1,14 +1,47 @@
-"use client";
-
-import { motion } from "framer-motion";
-import { Mail, Github, Linkedin, GraduationCap } from "lucide-react";
+import React, { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { Mail, Github, Linkedin, GraduationCap, Send, CheckCircle2, Loader2 } from "lucide-react";
 
 export default function Contact() {
+    const [status, setStatus] = useState<"idle" | "sending" | "success" | "error">("idle");
+
     const scrollToTop = () => {
         window.scrollTo({ top: 0, behavior: 'smooth' });
     };
 
+    const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+        e.preventDefault();
+        setStatus("sending");
+
+        const formData = new FormData(e.currentTarget);
+
+        try {
+            // Using Web3Forms as a default recommendation for static portfolios
+            // Users just need to add their access key to the hidden input
+            const response = await fetch("https://api.web3forms.com/submit", {
+                method: "POST",
+                body: formData
+            });
+
+            const data = await response.json();
+
+            if (data.success) {
+                setStatus("success");
+                // Reset after 3 seconds
+                setTimeout(() => setStatus("idle"), 3000);
+                (e.target as HTMLFormElement).reset();
+            } else {
+                setStatus("error");
+                setTimeout(() => setStatus("idle"), 3000);
+            }
+        } catch (error) {
+            setStatus("error");
+            setTimeout(() => setStatus("idle"), 3000);
+        }
+    };
+
     const contactLinks = [
+        // ... (rest of the component remains same)
         { label: "Email", value: "gurarpit.sml@gmail.com", icon: Mail, href: "mailto:gurarpit.sml@gmail.com" },
         { label: "LinkedIn", value: "gurarpitzz", icon: Linkedin, href: "https://linkedin.com/in/gurarpitzz" },
         { label: "GitHub", value: "gurarpitzz", icon: Github, href: "https://github.com/gurarpitzz" },
@@ -68,40 +101,128 @@ export default function Contact() {
                         </div>
 
                         {/* Minimal Form */}
-                        <div className="space-y-4 pt-4 md:pt-0">
-                            <input
-                                type="text"
-                                placeholder="Your Name"
-                                className="w-full bg-[#111111] border border-white/5 rounded-md px-4 py-3 focus:outline-none focus:border-primary/50 transition-all text-xs font-mono"
-                            />
-                            <input
-                                type="email"
-                                placeholder="Your Email"
-                                className="w-full bg-[#111111] border border-white/5 rounded-md px-4 py-3 focus:outline-none focus:border-primary/50 transition-all text-xs font-mono"
-                            />
-                            <textarea
-                                placeholder="Message"
-                                rows={3}
-                                className="w-full bg-[#111111] border border-white/5 rounded-md px-4 py-3 focus:outline-none focus:border-primary/50 transition-all text-xs font-mono resize-none"
-                            />
-                            <button className="w-full py-3 bg-white/5 hover:bg-primary hover:text-black border border-white/10 rounded-md text-[10px] font-bold uppercase tracking-widest transition-all">
-                                Send Message
-                            </button>
-                        </div>
+                        <form onSubmit={handleSubmit} className="space-y-4 pt-4 md:pt-0">
+                            {/* CAUTION: User must replace this with their actual Web3Forms access key */}
+                            <input type="hidden" name="access_key" value="YOUR_ACCESS_KEY_HERE" />
+                            <input type="hidden" name="subject" value="New Portfolio Message" />
+                            <input type="hidden" name="from_name" value="Portfolio Visitor" />
+
+                            <div className="space-y-4">
+                                <input
+                                    type="text"
+                                    name="name"
+                                    required
+                                    placeholder="Your Name"
+                                    className="w-full bg-[#111111] border border-white/5 rounded-md px-4 py-3 focus:outline-none focus:border-primary/50 transition-all text-xs font-mono placeholder:text-white/10"
+                                />
+                                <input
+                                    type="email"
+                                    name="email"
+                                    required
+                                    placeholder="Your Email"
+                                    className="w-full bg-[#111111] border border-white/5 rounded-md px-4 py-3 focus:outline-none focus:border-primary/50 transition-all text-xs font-mono placeholder:text-white/10"
+                                />
+                                <textarea
+                                    name="message"
+                                    required
+                                    placeholder="Message"
+                                    rows={3}
+                                    className="w-full bg-[#111111] border border-white/5 rounded-md px-4 py-3 focus:outline-none focus:border-primary/50 transition-all text-xs font-mono resize-none placeholder:text-white/10"
+                                />
+                                <button
+                                    disabled={status !== "idle"}
+                                    type="submit"
+                                    className="w-full py-4 bg-white/5 hover:bg-primary hover:text-black border border-white/10 rounded-md text-[10px] font-bold uppercase tracking-widest transition-all relative overflow-hidden group"
+                                >
+                                    <AnimatePresence mode="wait">
+                                        {status === "idle" && (
+                                            <motion.div
+                                                key="idle"
+                                                initial={{ y: 20, opacity: 0 }}
+                                                animate={{ y: 0, opacity: 1 }}
+                                                exit={{ y: -20, opacity: 0 }}
+                                                className="flex items-center justify-center gap-2"
+                                            >
+                                                Send Message <Send className="w-3 h-3 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
+                                            </motion.div>
+                                        )}
+                                        {status === "sending" && (
+                                            <motion.div
+                                                key="sending"
+                                                initial={{ y: 20, opacity: 0 }}
+                                                animate={{ y: 0, opacity: 1 }}
+                                                exit={{ y: -20, opacity: 0 }}
+                                                className="flex items-center justify-center gap-2"
+                                            >
+                                                Processing... <Loader2 className="w-3 h-3 animate-spin" />
+                                            </motion.div>
+                                        )}
+                                        {status === "success" && (
+                                            <motion.div
+                                                key="success"
+                                                initial={{ y: 20, opacity: 0 }}
+                                                animate={{ y: 0, opacity: 1 }}
+                                                exit={{ y: -20, opacity: 0 }}
+                                                className="flex items-center justify-center gap-2 text-green-500"
+                                            >
+                                                Sent Successfully <CheckCircle2 className="w-3 h-3" />
+                                            </motion.div>
+                                        )}
+                                        {status === "error" && (
+                                            <motion.div
+                                                key="error"
+                                                initial={{ y: 20, opacity: 0 }}
+                                                animate={{ y: 0, opacity: 1 }}
+                                                exit={{ y: -20, opacity: 0 }}
+                                                className="flex items-center justify-center gap-2 text-red-500"
+                                            >
+                                                Submission Failed
+                                            </motion.div>
+                                        )}
+                                    </AnimatePresence>
+                                </button>
+                            </div>
+                        </form>
                     </div>
 
                 </div>
             </div>
 
-            {/* Back to Top */}
+            {/* Back to Top Morphing Button */}
             <div className="mt-32 flex justify-center">
-                <button
+                <motion.button
                     onClick={scrollToTop}
-                    className="flex flex-col items-center gap-4 text-white/20 hover:text-primary transition-all group"
+                    initial={{ borderRadius: "4px" }}
+                    whileHover={{
+                        borderRadius: "100%",
+                        rotate: 360,
+                        backgroundColor: "rgba(34, 211, 238, 0.1)"
+                    }}
+                    transition={{ duration: 0.6, ease: "anticipate" }}
+                    className="w-16 h-16 flex items-center justify-center border border-white/10 text-white/20 hover:text-primary hover:border-primary/50 transition-colors group relative"
                 >
-                    <div className="w-[1px] h-12 bg-gradient-to-t from-primary/40 to-transparent group-hover:h-16 transition-all" />
-                    <span className="text-[10px] font-bold uppercase tracking-[0.4em]">Back to Top</span>
-                </button>
+                    {/* Inner Arrow */}
+                    <motion.div
+                        whileHover={{ y: -4 }}
+                        transition={{ repeat: Infinity, repeatType: "reverse", duration: 0.5 }}
+                    >
+                        <svg
+                            width="24"
+                            height="24"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            strokeWidth="2.5"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                        >
+                            <path d="M12 19V5M5 12l7-7 7 7" />
+                        </svg>
+                    </motion.div>
+
+                    {/* Subtle Pulse Ring */}
+                    <div className="absolute inset-0 rounded-full border border-primary/20 scale-0 group-hover:scale-150 opacity-0 group-hover:opacity-100 transition-all duration-700 pointer-events-none" />
+                </motion.button>
             </div>
         </section>
     );

@@ -19,11 +19,13 @@ export async function getProjectData(slug: string) {
 
 export function getAllProjectSlugs() {
     const fileNames = fs.readdirSync(projectsDirectory);
-    return fileNames.map((fileName) => {
-        return {
-            params: {
-                slug: fileName.replace(/\.mdx$/, ""),
-            },
-        };
-    });
+    return fileNames
+        .filter((fileName) => fileName.endsWith(".mdx"))
+        .map((fileName) => {
+            return {
+                params: {
+                    slug: fileName.replace(/\.mdx$/, ""),
+                },
+            };
+        });
 }

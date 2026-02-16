@@ -1,7 +1,14 @@
-import { getProjectData } from "@/lib/mdx";
+import { getProjectData, getAllProjectSlugs } from "@/lib/mdx";
 import { MDXRemote } from "next-mdx-remote/rsc";
 import { ArrowLeft, Github, Cpu, CheckCircle2 } from "lucide-react";
 import Link from "next/link";
+
+export async function generateStaticParams() {
+    const slugs = getAllProjectSlugs();
+    return slugs.map((s) => ({
+        slug: s.params.slug,
+    }));
+}
 
 interface PageProps {
     params: Promise<{ slug: string }>;

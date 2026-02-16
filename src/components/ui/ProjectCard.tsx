@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { Github } from "lucide-react";
 import Link from "next/link";
+import Image from "next/image";
 
 interface ProjectCardProps {
     title: string;
@@ -103,16 +104,20 @@ export default function ProjectCard({ title, description, tags, link, github, im
 
                 {/* Image/Mockup Area */}
                 <div className="lg:col-span-7 relative order-1 lg:order-2">
-                    <div className="relative aspect-square md:aspect-video rounded-2xl overflow-hidden bg-white/5 border border-white/10 group-hover:border-primary/30 transition-colors">
+                    <div className="relative aspect-[16/10] bg-white/5 rounded-2xl overflow-hidden border border-white/10 group-hover:border-primary/30 transition-all duration-700">
                         {image ? (
-                            <img src={image} alt={title} className="w-full h-full object-cover opacity-60 group-hover:opacity-100 transition-opacity duration-700" />
+                            <Image
+                                src={image}
+                                alt={title}
+                                fill
+                                className="object-cover group-hover:scale-105 transition-transform duration-700 opacity-60 group-hover:opacity-100"
+                            />
                         ) : (
                             <div className="w-full h-full flex items-center justify-center">
                                 <span className="text-9xl font-black text-white/5 uppercase tracking-tighter">{title[0]}</span>
                             </div>
                         )}
-                        {/* Overlay Gradient */}
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-60" />
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
                     </div>
                 </div>
             </motion.div>
@@ -129,12 +134,13 @@ export default function ProjectCard({ title, description, tags, link, github, im
             className={`group flex flex-col gap-6 p-6 rounded-2xl border border-white/5 bg-white/[0.01] hover:bg-white/[0.03] transition-all duration-500 ${index % 3 === 0 ? "lg:mt-0" : index % 3 === 1 ? "lg:mt-12" : "lg:mt-24"
                 }`}
         >
-            <div className="relative aspect-[4/3] rounded-xl overflow-hidden bg-white/5 border border-white/5 group-hover:border-primary/20 transition-colors">
+            <div className="relative aspect-video rounded-xl overflow-hidden border border-white/5 bg-white/5">
                 {image ? (
-                    <img
+                    <Image
                         src={image}
                         alt={title}
-                        className="w-full h-full object-cover transition-all duration-[1s] grayscale group-hover:grayscale-0 group-hover:scale-110 opacity-40 group-hover:opacity-100"
+                        fill
+                        className="object-cover group-hover:scale-110 transition-transform duration-700 opacity-40 group-hover:opacity-100"
                     />
                 ) : (
                     <div className="w-full h-full flex items-center justify-center text-4xl font-black text-white/5">
