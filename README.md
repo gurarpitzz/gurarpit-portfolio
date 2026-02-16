@@ -3,7 +3,7 @@
 This repository contains the source code for my personal developer portfolio.  
 It showcases my work in backend engineering, ML systems, and data-driven decision support, with a strong emphasis on building systems that actually get used.
 
-Live Website: [[https://gurarpit.in](https://www.gurarpit.in)]
+Live Website: [https://gurarpit.in](https://www.gurarpit.in)
 Focus: Backend Engineering · ML & Data Systems · Research-to-Production Pipelines
 
 ---
