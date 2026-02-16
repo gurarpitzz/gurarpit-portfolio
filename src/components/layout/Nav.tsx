@@ -55,7 +55,7 @@ export default function Nav() {
                         <a href="https://linkedin.com/in/gurarpitzz" target="_blank" className="p-2 text-white/40 hover:text-primary transition-colors" title="LinkedIn">
                             <Linkedin className="w-4 h-4" />
                         </a>
-                        <a href="mailto:gurarpit.sml@gmail.com" className="p-2 text-white/40 hover:text-primary transition-colors" title="Email">
+                        <a href="#contact" className="p-2 text-white/40 hover:text-primary transition-colors" title="Contact">
                             <Mail className="w-4 h-4" />
                         </a>
                     </div>
