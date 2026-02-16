@@ -20,7 +20,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="scroll-smooth">
-      <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_ID!} />
+      <GoogleAnalytics gaId="G-W8CHP25CZN" />
       <body className={`${inter.className} min-h-screen relative overflow-x-hidden bg-[#0a0a0b] text-foreground`}>
         <IntroGate>
           <Nav />
