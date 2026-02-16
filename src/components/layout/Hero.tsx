@@ -21,7 +21,7 @@ export default function Hero() {
                             Singh
                         </h1>
                         <p className="text-xl md:text-2xl text-foreground/40 font-medium tracking-tight">
-                            Backend & Systems Engineer
+                            Backend Developer | ML & Data Systems
                         </p>
                     </div>
 

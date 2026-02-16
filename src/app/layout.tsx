@@ -7,7 +7,7 @@ import IntroGate from "@/components/layout/IntroGate";
 const inter = Inter({ subsets: ["latin"], weight: ["400", "500", "600", "700", "900"] });
 
 export const metadata: Metadata = {
-  title: "Gurarpit Singh | Backend & Systems Engineer",
+  title: "Gurarpit Singh | Backend Developer | ML & Data Systems",
   description: "Building reliable backend systems and data-driven tools.",
 };
 
