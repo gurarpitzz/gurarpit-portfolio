@@ -9,6 +9,15 @@ import Contact from "@/components/layout/Contact";
 
 const projects = [
   {
+    title: "AETHER",
+    description: "Autonomous, AI-driven cyber defense system that shifts security from passive detection to active deception using digital DNA and reinforcement learning.",
+    tags: ["Cybersecurity", "AI", "Honeypot"],
+    link: "/projects/aether",
+    github: "https://github.com/gurarpitzz/AETHER-Smart-Honeypot",
+    image: "/projects/aether.jpg",
+    category: "Systems"
+  },
+  {
     title: "VibroBraille",
     description: "Braille-First AI Reading Interface designed for sequential vibration patterns on smartphones. Translates semantic meaning into tactile signals.",
     tags: ["Accessibility", "Signal Encoding", "Python"],
@@ -101,10 +110,10 @@ export default function Home() {
           <div className="pt-24 space-y-12">
             <div className="flex flex-wrap items-center gap-x-8 gap-y-4 text-[11px] font-bold uppercase tracking-widest border-b border-white/5 pb-8">
               <span className="text-white/20">Filter by</span>
-              <button className="text-primary">All <sup className="text-[8px] opacity-40">04</sup></button>
+              <button className="text-primary">All <sup className="text-[8px] opacity-40">05</sup></button>
               <button className="text-white/40 hover:text-white transition-colors">Data Visualization <sup className="text-[8px] opacity-40">01</sup></button>
               <button className="text-white/40 hover:text-white transition-colors">Web Development <sup className="text-[8px] opacity-40">02</sup></button>
-              <button className="text-white/40 hover:text-white transition-colors">Systems <sup className="text-[8px] opacity-40">01</sup></button>
+              <button className="text-white/40 hover:text-white transition-colors">Systems <sup className="text-[8px] opacity-40">02</sup></button>
             </div>
 
             {/* Asymmetric Grid */}
