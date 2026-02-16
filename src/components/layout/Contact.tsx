@@ -44,7 +44,7 @@ export default function Contact() {
     const contactLinks = [
         // ... (rest of the component remains same)
         { label: "Email", value: "gurarpit.sml@gmail.com", icon: Mail, href: "mailto:gurarpit.sml@gmail.com" },
-        { label: "LinkedIn", value: "gurarpitzz", icon: Linkedin, href: "https://linkedin.com/in/gurarpitzz" },
+        { label: "LinkedIn", value: "gurarpitsinghh", icon: Linkedin, href: "https://www.linkedin.com/in/gurarpitsinghh/" },
         { label: "GitHub", value: "gurarpitzz", icon: Github, href: "https://github.com/gurarpitzz" },
         { label: "Scholar", value: "Research Profile", icon: GraduationCap, href: "https://scholar.google.com/citations?user=VDbqG9cAAAAJ&hl=en" }
     ];

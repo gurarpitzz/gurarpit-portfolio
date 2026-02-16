@@ -52,7 +52,7 @@ export default function Nav() {
                         <a href="https://github.com/gurarpitzz" target="_blank" className="p-2 text-white/40 hover:text-primary transition-colors" title="GitHub">
                             <Github className="w-4 h-4" />
                         </a>
-                        <a href="https://linkedin.com/in/gurarpitzz" target="_blank" className="p-2 text-white/40 hover:text-primary transition-colors" title="LinkedIn">
+                        <a href="https://www.linkedin.com/in/gurarpitsinghh/" target="_blank" className="p-2 text-white/40 hover:text-primary transition-colors" title="LinkedIn">
                             <Linkedin className="w-4 h-4" />
                         </a>
                         <a href="#contact" className="p-2 text-white/40 hover:text-primary transition-colors" title="Contact">
