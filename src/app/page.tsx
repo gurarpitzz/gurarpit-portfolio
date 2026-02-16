@@ -1,4 +1,5 @@
 "use client";
+import { useState, useMemo } from "react";
 
 import Hero from "@/components/layout/Hero";
 import About from "@/components/layout/About";
@@ -56,8 +57,29 @@ const projects = [
 ];
 
 export default function Home() {
+  const [activeCategory, setActiveCategory] = useState("All");
+
   const featuredProject = projects[0];
-  const otherProjects = projects.slice(1);
+
+  const categories = useMemo(() => {
+    const cats = projects.map(p => p.category);
+    const uniqueCats = Array.from(new Set(cats));
+    return ["All", ...uniqueCats];
+  }, []);
+
+  const categoryCounts = useMemo(() => {
+    const counts: Record<string, number> = { All: projects.length };
+    projects.forEach(p => {
+      counts[p.category] = (counts[p.category] || 0) + 1;
+    });
+    return counts;
+  }, []);
+
+  const filteredOtherProjects = useMemo(() => {
+    const others = projects.slice(1);
+    if (activeCategory === "All") return others;
+    return others.filter(p => p.category === activeCategory);
+  }, [activeCategory]);
 
   return (
     <div className="space-y-0 bg-[#0a0a0b] text-white selection:bg-primary/30 selection:text-white antialiased">
@@ -110,15 +132,21 @@ export default function Home() {
           <div className="pt-24 space-y-12">
             <div className="flex flex-wrap items-center gap-x-8 gap-y-4 text-[11px] font-bold uppercase tracking-widest border-b border-white/5 pb-8">
               <span className="text-white/20">Filter by</span>
-              <button className="text-primary">All <sup className="text-[8px] opacity-40">05</sup></button>
-              <button className="text-white/40 hover:text-white transition-colors">Data Visualization <sup className="text-[8px] opacity-40">01</sup></button>
-              <button className="text-white/40 hover:text-white transition-colors">Web Development <sup className="text-[8px] opacity-40">02</sup></button>
-              <button className="text-white/40 hover:text-white transition-colors">Systems <sup className="text-[8px] opacity-40">02</sup></button>
+              {categories.map((cat) => (
+                <button
+                  key={cat}
+                  onClick={() => setActiveCategory(cat)}
+                  className={`transition-colors flex items-center gap-1 ${activeCategory === cat ? "text-primary" : "text-white/40 hover:text-white"
+                    }`}
+                >
+                  {cat} <sup className="text-[8px] opacity-40">{categoryCounts[cat]?.toString().padStart(2, '0')}</sup>
+                </button>
+              ))}
             </div>
 
             {/* Asymmetric Grid */}
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-4 lg:gap-8 items-start">
-              {otherProjects.map((project, i) => (
+              {filteredOtherProjects.map((project, i) => (
                 <ProjectCard
                   key={i}
                   index={i + 1}
