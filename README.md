@@ -156,6 +156,3 @@ This project is open-source and available under the MIT License.
 
 Built with a focus on clarity, systems thinking, and long-term engineering growth.
 
-
-just tell me.
-```
