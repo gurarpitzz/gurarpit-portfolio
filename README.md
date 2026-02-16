@@ -1,6 +1,7 @@
 # Gurarpit Singh — Portfolio Website
 
-This repository contains the source code for my personal developer portfolio, showcasing my work in backend engineering, ML systems, and data-driven decision support.
+This repository contains the source code for my personal developer portfolio.  
+It showcases my work in backend engineering, ML systems, and data-driven decision support, with a strong emphasis on building systems that actually get used.
 
 Live Website: https://gurarpits.vercel.app  
 Focus: Backend Engineering · ML & Data Systems · Research-to-Production Pipelines
@@ -9,63 +10,61 @@ Focus: Backend Engineering · ML & Data Systems · Research-to-Production Pipeli
 
 ## About the Portfolio
 
-This portfolio represents my approach to building systems that turn complex data into actionable signals.  
-Rather than focusing purely on UI, the site highlights:
+This portfolio reflects how I think about engineering problems.
 
-Backend architecture and APIs  
-Semantic and ML-based systems  
-Research-oriented engineering projects  
-Decision-support tools in healthcare, accessibility, and research intelligence  
+I am less interested in surface-level features and more focused on how data flows through a system, how signals are extracted, and how technical output can be turned into decisions people can trust.
 
-“Good decisions start with good data.”
+The site highlights work around backend architecture, semantic and ML-based systems, and research-oriented engineering projects, especially in domains like healthcare, accessibility, and research intelligence.
+
+Good decisions start with good data.
 
 ---
 
 ## What I Work On
 
 ### Backend and Systems
-Building RESTful APIs and backend services  
-WebSockets and async systems  
-Data pipelines and service boundaries  
-Python, FastAPI, PostgreSQL  
+
+I build backend services that are structured, readable, and designed with scale in mind.  
+My work typically involves API design, async workflows, and clearly defined service boundaries.
+
+Core areas include RESTful APIs, WebSockets, backend system design, and data pipelines using Python, FastAPI, and PostgreSQL.
 
 ### ML, Data and NLP
-Semantic search and embeddings  
-Verification and signal aggregation  
-Knowledge-driven workflows  
-Vector databases and retrieval systems  
 
-### Research-to-Production
-Translating research ideas into usable systems  
-Accessibility-focused interfaces  
-Evidence-driven ML tooling  
+My ML work focuses less on chasing accuracy numbers and more on building usable systems.  
+This includes semantic search, embeddings, verification logic, and retrieval-based workflows that surface meaningful signals rather than raw predictions.
+
+### Research to Production
+
+A recurring theme in my projects is translating research ideas into systems that can exist outside a paper.  
+This includes accessibility-first interfaces, evidence-driven ML tooling, and production-ready research prototypes.
 
 ---
 
 ## Featured Projects
 
-Some highlighted projects from the portfolio:
+The portfolio highlights a selection of projects that reflect this approach.
 
 VibroBraille  
-Braille-first AI reading interface that converts semantic meaning into tactile smartphone signals for accessibility.
+A braille-first AI reading interface that converts semantic meaning into tactile smartphone signals, designed to improve accessibility rather than just automate text.
 
 SRME (Semantic Research Matchmaking Engine)  
-A semantic indexing and matching system built on 500+ faculty research publications.
+A semantic indexing and matching system built on more than 500 faculty research publications, focused on intelligent discovery rather than keyword search.
 
 ARES (Proof of Concept)  
-Research integrity and verification engine using evidence aggregation metrics.
+A research integrity and verification engine that aggregates evidence signals to reason about credibility and consistency.
 
 BeCured Support  
-Healthcare diagnostic decision-support system designed to frame ML outputs as interpretable medical signals.
+A healthcare diagnostic decision-support system designed to present ML outputs as interpretable medical signals instead of opaque predictions.
 
-Each project focuses on systems thinking, not just model accuracy or UI polish.
+Across all projects, the emphasis is on systems thinking, not just UI polish or model metrics.
 
 ---
 
 ## Tech Stack
 
 Frontend  
-Next.js (App Router)  
+Next.js with the App Router  
 TypeScript  
 Tailwind CSS  
 Framer Motion  
@@ -108,7 +107,7 @@ Vercel
 
 ## Running Locally
 
-Clone the repository:
+Clone the repository and move into the project directory:
 
 ```bash
 git clone https://github.com/gurarpitzz/gurarpit-portfolio.git
@@ -121,24 +120,20 @@ Install dependencies:
 npm install
 ```
 
-Run the development server:
+Start the development server:
 
 ```bash
 npm run dev
 ```
 
-Visit [http://localhost:3000](http://localhost:3000) to view the site locally.
+Open [http://localhost:3000](http://localhost:3000) to view the site locally.
 
 ---
 
 ## Customization
 
-You can easily adapt this portfolio by:
-
-Updating personal info and project data
-Adding or removing featured projects
-Tweaking layout and animations
-Extending sections for blogs or research notes
+This portfolio is intentionally simple to adapt.
+You can update personal information, add or remove projects, adjust layouts and animations, or extend it with blogs and research notes as your work evolves.
 
 ---
 
@@ -155,4 +150,3 @@ Portfolio: [https://gurarpits.vercel.app](https://gurarpits.vercel.app)
 This project is open-source and available under the MIT License.
 
 Built with a focus on clarity, systems thinking, and long-term engineering growth.
-
