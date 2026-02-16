@@ -34,7 +34,8 @@ export default function Contact() {
                 setStatus("error");
                 setTimeout(() => setStatus("idle"), 3000);
             }
-        } catch (error) {
+            // eslint-disable-next-line @typescript-eslint/no-unused-vars
+        } catch (_error) {
             setStatus("error");
             setTimeout(() => setStatus("idle"), 3000);
         }
@@ -103,7 +104,7 @@ export default function Contact() {
                         {/* Minimal Form */}
                         <form onSubmit={handleSubmit} className="space-y-4 pt-4 md:pt-0">
                             {/* CAUTION: User must replace this with their actual Web3Forms access key */}
-                            <input type="hidden" name="access_key" value="YOUR_ACCESS_KEY_HERE" />
+                            <input type="hidden" name="access_key" value="462473e1-126a-4990-9d38-a5e96cb5c9b9" />
                             <input type="hidden" name="subject" value="New Portfolio Message" />
                             <input type="hidden" name="from_name" value="Portfolio Visitor" />
 
