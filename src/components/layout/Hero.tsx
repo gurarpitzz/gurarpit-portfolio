@@ -16,6 +16,10 @@ export default function Hero() {
                     className="space-y-6"
                 >
                     <div className="space-y-2">
+                        {/* Handwritten greeting */}
+                        <p className="text-2xl md:text-3xl text-white/60 font-light italic tracking-wide" style={{ fontFamily: 'cursive' }}>
+                            Hi, I&apos;m
+                        </p>
                         <h1 className="text-6xl md:text-8xl font-black tracking-tighter leading-[0.9] text-white">
                             Gurarpit <br />
                             Singh
