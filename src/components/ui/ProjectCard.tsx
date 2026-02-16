@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Github } from "lucide-react";
+import { Github, FileText } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
 
@@ -12,6 +12,7 @@ interface ProjectCardProps {
     link: string;
     github?: string;
     image?: string;
+    publication?: string;
     index: number;
     variant?: "featured" | "secondary";
 }
@@ -46,7 +47,7 @@ const CuriousArrow = () => (
     </motion.svg>
 );
 
-export default function ProjectCard({ title, description, tags, link, github, image, index, variant = "secondary" }: ProjectCardProps) {
+export default function ProjectCard({ title, description, tags, link, github, image, publication, index, variant = "secondary" }: ProjectCardProps) {
     if (variant === "featured") {
         return (
             <motion.div
@@ -97,6 +98,12 @@ export default function ProjectCard({ title, description, tags, link, github, im
                             <a href={github} target="_blank" className="text-white/40 hover:text-white transition-colors flex items-center gap-2 text-[10px] uppercase font-bold tracking-widest">
                                 <Github className="w-4 h-4" />
                                 Source
+                            </a>
+                        )}
+                        {publication && (
+                            <a href={publication} target="_blank" className="text-white/40 hover:text-white transition-colors flex items-center gap-2 text-[10px] uppercase font-bold tracking-widest">
+                                <FileText className="w-4 h-4" />
+                                See Publication
                             </a>
                         )}
                     </div>
@@ -175,6 +182,12 @@ export default function ProjectCard({ title, description, tags, link, github, im
                     {github && (
                         <a href={github} target="_blank" className="text-white/20 hover:text-white transition-colors">
                             <Github className="w-3 h-3" />
+                        </a>
+                    )}
+                    {publication && (
+                        <a href={publication} target="_blank" className="text-white/20 hover:text-white transition-colors flex items-center gap-1.5 text-[9px] font-bold uppercase tracking-wider">
+                            <FileText className="w-3 h-3" />
+                            Publication
                         </a>
                     )}
                 </div>

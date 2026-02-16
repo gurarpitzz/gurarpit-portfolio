@@ -25,7 +25,8 @@ const projects = [
     link: "/projects/aether",
     github: "https://github.com/gurarpitzz/AETHER-Smart-Honeypot",
     image: "/projects/aether.jpg",
-    category: "Systems"
+    category: "Systems",
+    publication: "https://www.techrxiv.org/users/938624/articles/1308701-aether-autonomous-evolving-tamper-proof-honeypot-ecosystem-with-reactive-intelligence"
   },
   {
     title: "SRME",
@@ -43,7 +44,8 @@ const projects = [
     link: "/projects/ares_poc",
     github: "https://github.com/gurarpitzz/ARES_POC",
     image: "/projects/ares_poc.jpg",
-    category: "Systems"
+    category: "Systems",
+    publication: "https://www.researchsquare.com/article/rs-6973364/v1"
   },
   {
     title: "BeCured Support",

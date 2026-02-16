@@ -1,6 +1,6 @@
 import { getProjectData, getAllProjectSlugs } from "@/lib/mdx";
 import { MDXRemote } from "next-mdx-remote/rsc";
-import { ArrowLeft, Github, Cpu, CheckCircle2 } from "lucide-react";
+import { ArrowLeft, Github, Cpu, CheckCircle2, FileText } from "lucide-react";
 import Link from "next/link";
 
 export async function generateStaticParams() {
@@ -50,6 +50,16 @@ export default async function ProjectPage({ params }: PageProps) {
                             >
                                 <Github className="w-4 h-4" />
                                 View Code
+                            </a>
+                        )}
+                        {frontmatter.publication && (
+                            <a
+                                href={frontmatter.publication}
+                                target="_blank"
+                                className="px-8 py-4 bg-white/5 border border-white/10 text-white font-black uppercase tracking-widest text-xs rounded-xl hover:bg-white/10 transition-all flex items-center gap-2"
+                            >
+                                <FileText className="w-4 h-4" />
+                                See Publication
                             </a>
                         )}
                         <div className="flex gap-3">
