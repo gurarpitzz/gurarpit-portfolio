@@ -9,15 +9,6 @@ import Contact from "@/components/layout/Contact";
 
 const projects = [
   {
-    title: "AETHER",
-    description: "Autonomous, AI-driven cyber defense system that shifts security from passive detection to active deception using digital DNA and reinforcement learning.",
-    tags: ["Cybersecurity", "AI", "Honeypot"],
-    link: "/projects/aether",
-    github: "https://github.com/gurarpitzz/AETHER-Smart-Honeypot",
-    image: "/projects/aether.jpg",
-    category: "Systems"
-  },
-  {
     title: "VibroBraille",
     description: "Braille-First AI Reading Interface designed for sequential vibration patterns on smartphones. Translates semantic meaning into tactile signals.",
     tags: ["Accessibility", "Signal Encoding", "Python"],
@@ -25,6 +16,15 @@ const projects = [
     github: "https://github.com/gurarpitzz/Vibrobraille-hybrid",
     image: "/projects/vibrobraille.jpg",
     category: "Signal Processing"
+  },
+  {
+    title: "AETHER",
+    description: "Autonomous, AI-driven cyber defense system that shifts security from passive detection to active deception using digital DNA and reinforcement learning.",
+    tags: ["Cybersecurity", "AI", "Honeypot"],
+    link: "/projects/aether",
+    github: "https://github.com/gurarpitzz/AETHER-Smart-Honeypot",
+    image: "/projects/aether.jpg",
+    category: "Systems"
   },
   {
     title: "SRME",
