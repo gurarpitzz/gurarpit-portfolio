@@ -8,9 +8,55 @@ import { GoogleAnalytics } from "@next/third-parties/google";
 
 const inter = Inter({ subsets: ["latin"], weight: ["400", "500", "600", "700", "900"] });
 
+import { SITE_NAME, SITE_ROLE, SITE_DESCRIPTION, SITE_URL, OG_IMAGE } from "@/lib/seo";
+
 export const metadata: Metadata = {
-  title: "Gurarpit Singh | Backend Developer | ML & Data Systems",
-  description: "Building reliable backend systems and data-driven tools.",
+  metadataBase: new URL(SITE_URL),
+  title: {
+    default: `${SITE_NAME} | ${SITE_ROLE}`,
+    template: `%s | ${SITE_NAME}`,
+  },
+  description: SITE_DESCRIPTION,
+  keywords: ["Backend Developer", "Machine Learning", "Data Systems", "Semantic Search", "Portfolio"],
+  authors: [{ name: SITE_NAME }],
+  creator: SITE_NAME,
+  openGraph: {
+    title: `${SITE_NAME} | ${SITE_ROLE}`,
+    description: "Building reliable backend systems and data-driven decision-support tools.",
+    url: SITE_URL,
+    siteName: SITE_NAME,
+    images: [
+      {
+        url: OG_IMAGE,
+        width: 1200,
+        height: 630,
+        alt: `${SITE_NAME} — Backend & ML Systems`,
+      },
+    ],
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: `${SITE_NAME} | ${SITE_ROLE}`,
+    description: "Building backend-driven ML and data systems focused on decision support.",
+    images: [OG_IMAGE],
+    creator: "@GurarpitS66760",
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
+  alternates: {
+    canonical: SITE_URL,
+  },
 };
 
 export default function RootLayout({

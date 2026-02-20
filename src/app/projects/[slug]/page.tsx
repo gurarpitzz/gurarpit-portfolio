@@ -2,6 +2,46 @@ import { getProjectData, getAllProjectSlugs } from "@/lib/mdx";
 import { MDXRemote } from "next-mdx-remote/rsc";
 import { ArrowLeft, Github, Cpu, CheckCircle2, FileText } from "lucide-react";
 import Link from "next/link";
+import { Metadata } from "next";
+import { SITE_NAME, SITE_URL, OG_IMAGE } from "@/lib/seo";
+
+export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+    const { slug } = await params;
+    const { frontmatter } = await getProjectData(slug);
+
+    const title = `${frontmatter.title} — ${frontmatter.tags?.[0] || 'Project'} System`;
+    const description = frontmatter.description;
+    const url = `${SITE_URL}/projects/${slug}`;
+
+    return {
+        title,
+        description,
+        alternates: {
+            canonical: url,
+        },
+        openGraph: {
+            title: `${title} | ${SITE_NAME}`,
+            description,
+            url,
+            type: "article",
+            images: [
+                {
+                    url: frontmatter.image || OG_IMAGE,
+                    width: 1200,
+                    height: 630,
+                    alt: frontmatter.title,
+                },
+            ],
+        },
+        twitter: {
+            card: "summary_large_image",
+            title: `${title} | ${SITE_NAME}`,
+            description,
+            images: [frontmatter.image || OG_IMAGE],
+            creator: "@GurarpitS66760",
+        },
+    };
+}
 
 export async function generateStaticParams() {
     const slugs = getAllProjectSlugs();
