@@ -119,7 +119,7 @@ export default function Skills() {
             </div>
 
             {/* Code backdrop effect - visible behind grid */}
-            <div className="absolute top-[calc(54%+12px)] lg:top-[calc(52%+12px)] left-6 md:left-12 lg:left-24 -translate-y-1/2 w-full max-w-xl opacity-20 pointer-events-none font-mono text-xs leading-relaxed overflow-hidden">
+            <div className="absolute top-[calc(54%+55px)] lg:top-[calc(52%+55px)] left-6 md:left-12 lg:left-24 -translate-y-1/2 w-full max-w-xl opacity-20 pointer-events-none font-mono text-xs leading-relaxed overflow-hidden">
                 <pre className="text-left select-none">
                     <span className="text-gray-600">{'<script>'}</span>{'\n'}
                     <span className="text-gray-500">  {'// Things I do to get a perfect background image'}</span>{'\n'}
