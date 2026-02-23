@@ -121,11 +121,20 @@ export default function Skills() {
             {/* Code backdrop effect - visible behind grid */}
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-5xl opacity-30 pointer-events-none font-mono text-xs leading-relaxed overflow-hidden">
                 <pre className="text-left">
-                    <span className="text-yellow-600">const</span> <span className="text-blue-400">expertise</span> <span className="text-white">=</span> {'{'}{'\n'}
-                    <span className="text-green-500">  backend</span><span className="text-white">: [</span><span className="text-orange-400">&apos;Python&apos;</span><span className="text-white">, </span><span className="text-orange-400">&apos;FastAPI&apos;</span><span className="text-white">, </span><span className="text-orange-400">&apos;APIs&apos;</span><span className="text-white">],</span>{'\n'}
-                    <span className="text-green-500">  data_nlp</span><span className="text-white">: [</span><span className="text-orange-400">&apos;Semantic Search&apos;</span><span className="text-white">, </span><span className="text-orange-400">&apos;Embeddings&apos;</span><span className="text-white">, </span><span className="text-orange-400">&apos;Retrieval&apos;</span><span className="text-white">],</span>{'\n'}
-                    <span className="text-green-500">  research</span><span className="text-white">: [</span><span className="text-orange-400">&apos;Decision Support&apos;</span><span className="text-white">, </span><span className="text-orange-400">&apos;Interpretability&apos;</span><span className="text-white">]</span>{'\n'}
-                    <span className="text-white">{'};'}</span>
+                    <span className="text-gray-600">{'<script>'}</span>{'\n'}
+                    <span className="text-gray-500">  {'// Things I do to get a perfect background image'}</span>{'\n'}
+                    <span className="text-gray-500">  {'// Nope, I should stop tinkering with VSCode settings'}</span>{'\n'}
+                    <span className="text-gray-500">  {'// Just to take a screenshot of this dummy html code.'}</span>{'\n'}
+                    {'\n'}
+                    <span className="text-yellow-600">  {'const'}</span> <span className="text-blue-400">expertise</span> <span className="text-white">=</span> {'{'}
+                    {'\n'}
+                    <span className="text-green-500">    backend</span><span className="text-white">:</span> <span className="text-white">{'['}</span><span className="text-orange-400">&apos;Python&apos;</span><span className="text-white">,</span> <span className="text-orange-400">&apos;FastAPI&apos;</span><span className="text-white">,</span> <span className="text-orange-400">&apos;APIs&apos;</span><span className="text-white">{']'}</span><span className="text-white">,</span>{'\n'}
+                    <span className="text-green-500">    data_nlp</span><span className="text-white">:</span> <span className="text-white">{'['}</span><span className="text-orange-400">&apos;Semantic Search&apos;</span><span className="text-white">,</span> <span className="text-orange-400">&apos;Embeddings&apos;</span><span className="text-white">,</span> <span className="text-orange-400">&apos;Retrieval&apos;</span><span className="text-white">{']'}</span><span className="text-white">,</span>{'\n'}
+                    <span className="text-green-500">    research</span><span className="text-white">:</span> <span className="text-white">{'['}</span><span className="text-orange-400">&apos;Decision Support&apos;</span><span className="text-white">,</span> <span className="text-orange-400">&apos;Interpretability&apos;</span><span className="text-white">{']'}</span>{'\n'}
+                    <span className="text-white">  {'}'}</span><span className="text-white">;</span>{'\n'}
+                    {'\n'}
+                    <span className="text-gray-500">  {`// Oops. Almost forgot to say "Hello World!"`}</span>{'\n'}
+                    <span className="text-gray-600">{'</script>'}</span>
                 </pre>
             </div>
         </section>
