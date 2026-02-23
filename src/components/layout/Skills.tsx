@@ -8,21 +8,21 @@ const skills = [
         icon: Monitor,
         title: "Backend",
         subtitle: "Engineering",
-        description: "Building reliable backend systems with Python, FastAPI, PostgreSQL. Experienced in RESTful APIs, WebSockets, and system architecture.",
+        description: "Building backend systems with Python and FastAPI. Designing RESTful APIs, real-time orchestration layers, and system architectures for ML-backed services.",
         color: "text-pink-500"
     },
     {
         icon: Code,
         title: "Data & NLP",
         subtitle: "Semantic Systems",
-        description: "Semantic search engines, NLP embeddings, knowledge graphs. Working with Pinecone, OpenAI, and custom vector databases for research applications.",
+        description: "Semantic search and research intelligence systems using transformer-based embeddings. Retrieval pipelines, similarity scoring, and decision-support workflows.",
         color: "text-blue-400"
     },
     {
         icon: Smartphone,
         title: "Research",
         subtitle: "Systems",
-        description: "Signal processing, verification engines, and accessibility interfaces. Translating complex research into production-ready systems.",
+        description: "Evidence-scoring, verification, and accessibility-focused systems. Translating research prototypes into interpretable, production-ready ML pipelines.",
         color: "text-orange-500"
     }
 ];
@@ -121,20 +121,11 @@ export default function Skills() {
             {/* Code backdrop effect - visible behind grid */}
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-5xl opacity-30 pointer-events-none font-mono text-xs leading-relaxed overflow-hidden">
                 <pre className="text-left">
-                    <span className="text-gray-600">{'<script>'}</span>{'\n'}
-                    <span className="text-gray-500">  {'// Things I do to get a perfect background image'}</span>{'\n'}
-                    <span className="text-gray-500">  {'// Nope, I should stop tinkering with VSCode settings'}</span>{'\n'}
-                    <span className="text-gray-500">  {'// Just to take a screenshot of this dummy html code.'}</span>{'\n'}
-                    {'\n'}
-                    <span className="text-yellow-600">  {'const'}</span> <span className="text-blue-400">expertise</span> <span className="text-white">=</span> {'{'}
-                    {'\n'}
-                    <span className="text-green-500">    backend</span><span className="text-white">:</span> <span className="text-white">{'['}</span><span className="text-orange-400">&apos;Python&apos;</span><span className="text-white">,</span> <span className="text-orange-400">&apos;FastAPI&apos;</span><span className="text-white">,</span> <span className="text-orange-400">&apos;PostgreSQL&apos;</span><span className="text-white">{']'}</span><span className="text-white">,</span>{'\n'}
-                    <span className="text-green-500">    frontend</span><span className="text-white">:</span> <span className="text-white">{'['}</span><span className="text-orange-400">&apos;React&apos;</span><span className="text-white">,</span> <span className="text-orange-400">&apos;Next.js&apos;</span><span className="text-white">,</span> <span className="text-orange-400">&apos;TypeScript&apos;</span><span className="text-white">{']'}</span><span className="text-white">,</span>{'\n'}
-                    <span className="text-green-500">    mobile</span><span className="text-white">:</span> <span className="text-white">{'['}</span><span className="text-orange-400">&apos;Flutter&apos;</span><span className="text-white">,</span> <span className="text-orange-400">&apos;Dart&apos;</span><span className="text-white">,</span> <span className="text-orange-400">&apos;Firebase&apos;</span><span className="text-white">{']'}</span>{'\n'}
-                    <span className="text-white">  {'}'}</span><span className="text-white">;</span>{'\n'}
-                    {'\n'}
-                    <span className="text-gray-500">  {`// Oops. Almost forgot to say "Hello World!"`}</span>{'\n'}
-                    <span className="text-gray-600">{'</script>'}</span>
+                    <span className="text-yellow-600">const</span> <span className="text-blue-400">expertise</span> <span className="text-white">=</span> {'{'}{'\n'}
+                    <span className="text-green-500">  backend</span><span className="text-white">: [</span><span className="text-orange-400">&apos;Python&apos;</span><span className="text-white">, </span><span className="text-orange-400">&apos;FastAPI&apos;</span><span className="text-white">, </span><span className="text-orange-400">&apos;APIs&apos;</span><span className="text-white">],</span>{'\n'}
+                    <span className="text-green-500">  data_nlp</span><span className="text-white">: [</span><span className="text-orange-400">&apos;Semantic Search&apos;</span><span className="text-white">, </span><span className="text-orange-400">&apos;Embeddings&apos;</span><span className="text-white">, </span><span className="text-orange-400">&apos;Retrieval&apos;</span><span className="text-white">],</span>{'\n'}
+                    <span className="text-green-500">  research</span><span className="text-white">: [</span><span className="text-orange-400">&apos;Decision Support&apos;</span><span className="text-white">, </span><span className="text-orange-400">&apos;Interpretability&apos;</span><span className="text-white">]</span>{'\n'}
+                    <span className="text-white">{'};'}</span>
                 </pre>
             </div>
         </section>
