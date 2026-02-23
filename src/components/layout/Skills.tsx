@@ -119,8 +119,8 @@ export default function Skills() {
             </div>
 
             {/* Code backdrop effect - visible behind grid */}
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-5xl opacity-30 pointer-events-none font-mono text-xs leading-relaxed overflow-hidden">
-                <pre className="text-left">
+            <div className="absolute top-1/2 left-[5%] md:left-[10%] -translate-y-1/2 w-full max-w-2xl opacity-20 pointer-events-none font-mono text-xs leading-relaxed overflow-hidden">
+                <pre className="text-left select-none">
                     <span className="text-gray-600">{'<script>'}</span>{'\n'}
                     <span className="text-gray-500">  {'// Things I do to get a perfect background image'}</span>{'\n'}
                     <span className="text-gray-500">  {'// Nope, I should stop tinkering with VSCode settings'}</span>{'\n'}
